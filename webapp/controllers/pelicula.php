@@ -17,3 +17,4 @@
             $this->service = new PeliculaService();
         }
     }
+?>

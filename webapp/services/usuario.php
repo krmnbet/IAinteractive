@@ -2,23 +2,23 @@
     //Cargar la clase padre para este servicio
     require_once('service.php');
 	//Cargar el modelo para este servicio
-    require_once("models/pelicula.php");
+    require_once("models/usuario.php");
     //Cargar los archivos necesarios
 
-	class PeliculaService extends ModelService {
+	class UsuarioService extends ModelService {
         public function findAll() {
-            $peliculas = PeliculaModel::findAll();
+            $usuario = UsuarioModel::findAll();
             $this->response->status = 200;
             $this->response->message = "OK";
-            $this->response->data = $peliculas;
+            $this->response->data = $usuario;
             return $this->response;
 		}
 
         public function findByOne($id) {
-            $pelicula = new PeliculaModel($id);
+            $usuario = new UsuarioModel($id);
             $this->response->status = 200;
             $this->response->message = "OK";
-            $this->response->data = $pelicula;
+            $this->response->data = $usuario;
             return $this->response;
         }
 
@@ -31,12 +31,12 @@
         }
 
         public function delete($id) {
-            $pelicula = new PeliculaModel($id);
-            $pelicula->cambiarEstatus();
-            $pelicula->guardar();
+            $usuario = new UsuarioModel($id);
+            $usuario->cambiarEstatus();
+            $usuario->guardar();
             $this->response->status = 200;
             $this->response->message = "OK";
-            $this->response->data = $pelicula;
+            $this->response->data = $usuario;
             return $this->response;
         }
 	}

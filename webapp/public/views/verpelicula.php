@@ -121,13 +121,13 @@ Volver</button>
 </div> 
 </div>
 <script>
-	function agregarComentario(){
+	function agregarComentario(idpeli){
 		
-		<?php if(isset($_COOKIE['iduser'])){ ?>
+		<?php if(isset($_SESSION['usuario'])){ ?>
 				$("#modelcomentario").modal('show');
 		<?php }else{?>
 				alert("Debes iniciar sesion para comentar");
-				window.location = 'index.php?c=Peliculas&f=user';
+				window.location = 'http://localhost/IAinteractive/webapp/public/views/usuarios/usuarioinicio.php?id='+idpeli;
 		<?php } ?>
 	
        

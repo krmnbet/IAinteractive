@@ -1,7 +1,7 @@
 <?php
 
 	//Cargar la clase de conexión padre para el modelo
-	require_once("models/model_father.php");
+	require_once("models/model.php");
     //Cargar los archivos necesarios
 
     class UsuarioModel extends Model
@@ -105,6 +105,7 @@
             }
             return $json;
         }
+		
 
     }
 

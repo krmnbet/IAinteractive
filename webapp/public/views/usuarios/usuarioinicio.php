@@ -28,7 +28,7 @@
             	type="text"
             	id="usuario"
             	name="usuario"
-            	value="<?php echo $correo;?>">
+            	>
          
             <br />
 			<input
@@ -38,7 +38,7 @@
          		AUTOCOMPLETE="off"
          		id="clave"
          		name="clave"
-         		value="<?php echo $clave;?>">
+         		>
          	<br /><br />
               <button id="loginuser" class="btn btn-primary btn-lg btn-block" data-loading-text="<i class='fa fa-refresh fa-spin '></i>" type="button">
                 Login </button>
@@ -95,7 +95,29 @@
     </div> 
 </div> 
 
+<script>
+	$(document).ready(function(){
+     
+$("#loginuser").on('click', function() { 
+		var btnguardar = $(this);
+      	btnguardar.button("loading");
+      	
+      	$.post("ajax.php?c=Peliculas&f=validauser",{
+      		usuario:$("#usuario").val(),
+      		clave:$("#clave").val()
+      	},function(r){ 
+      		if(r==0){
+      			alert("Usuario o clave incorrectos!");
+      		}else{
+      			window.location ="http://localhost/IAinteractive/webapp/pelicula/<?php echo $_REQUEST['id'];?>";
+      		}
+      		btnguardar.button('reset');
+     	 });
 
+
+     });
+   });
+</script>
 
 	</body>
 </html>

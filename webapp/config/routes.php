@@ -30,3 +30,8 @@
 		$seguridad = new SeguridadAdministrador();
 		$seguridad->logueado();
 	});
+	$app_router->bindGet('usuario', 'Usuario::findAll', function(){
+		$seguridad = new SeguridadAdministrador();
+		$seguridad->logueado();
+	});
+?>

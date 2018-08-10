@@ -20,7 +20,7 @@ $("#loginuser").on('click', function() {
       		if(r==0){
       			alert("Usuario o clave incorrectos!");
       		}else{
-      			window.location ="http://localhost/IAinteractive3/index.php?c=Peliculas&f=verpeli";
+      			window.location ="http://localhost/IAinteractive/webapp/public/views/principal.php";
       		}
       		btnguardar.button('reset');
      	 });
@@ -38,7 +38,7 @@ $("#loginuser").on('click', function() {
       	},function(r){
       		if(r==1){
       			alert("Usuario registrado!");
-      			window.location ="index.php?c=Peliculas&f=user&clave="+$("#newclave").val()+"&correo="+$("#correo").val();
+      			window.location ="http://localhost/IAinteractive/webapp/public/views/usuarios/usuarioinicio.php";
       		}else{
       			alert("Error en registro");
       		}
