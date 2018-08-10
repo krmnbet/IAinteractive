@@ -27,14 +27,14 @@
             
             success: function(r){
             	
-				
+				$("#conten").empty();
         
 				for (var i in r) {
             		tabla+='<div class="col-md-2"><table>\
 		            		<tr>\
 			        			<th title="Sinopsis" rowspan="2">\
 			        				<div class="col-md-3" style="">\
-										<img src="http://localhost/IAinteractive/webapp/public/poster/'+r[i].poster+'" width="200px" height="270px" onclick="javascript:window.location=\'http://localhost/IAinteractive/webapp/pelicula/'+r[i].id+'\'" style="display:block;cursor: pointer" scale="0">\
+										<img src="http://localhost/IAinteractive/webapp/public/poster/'+r[i].poster+'" width="200px" height="270px" onclick="javascript:window.location=\'http://localhost/IAinteractive/webapp/public/views/verpelicula.php?p='+r[i].id+'\'" style="display:block;cursor: pointer" scale="0">\
 									</div>\
 			        			</th>\
 			        		</tr>\

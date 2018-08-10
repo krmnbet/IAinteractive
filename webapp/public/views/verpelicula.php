@@ -20,24 +20,46 @@
 	<button id="" onclick="javascript:window.location='index.php?c=Peliculas&f=inicio'" class="btn btn-primary btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i>
 Volver</button>
 	<br><br>
+	<script>
+		
+		    $.ajax({
+            url:"http://localhost/IAinteractive/webapp/pelicula/<?php echo $_REQUEST['p'];?>",
+            type: 'GET',
+            dataType:'JSON',                                
+            
+            success: function(r){
+            	
+				
+        
+				
+            		$("#titulo").html("<b style='color:#4E93BE'>"+r.titulo+"</b><br>");
+            		$("#fecha").html(r.fecha_estreno);
+            		$("#sinopsis").html("<b style='color:#4E93BE'>Sinopsis:</b><br>"+r.sinopsis);
+            		$("#resena").html(r.resena);
+            		
+            		$("#image").attr("src","http://localhost/IAinteractive/webapp/public/poster/"+r.poster);
+	        		
+	        	}
+            });
+	</script>
 	<div style="overflow: scroll;">
 		<table style="color:#686464" >
 			<tr>
 				<th rowspan="3"> 
 					<div class="col-md-3" style="">
-						<img src="poster/aqua.jpeg" width="200px" height="270px" style="display:block;" scale="0">
+						<img src="" id="image" width="200px" height="270px" style="display:block;" scale="0">
 					</div>
 				</th>
-				<th>AQUAMAN</th>
+				<th id="titulo"></th>
 				
 			</tr>
 			<tr>
-				<th>FECHA</th>
+				<th id="fecha"></th>
 			</tr>
 			<tr>
 				<th>
-					<div class="col-md-3" style="">
-					algo de sonopsisisiosa sdlsmldksaS ESFDSFF
+					<div class="col-md-3" style="text-align:justify;" id="sinopsis">
+					
 					</div>
 					</th>
 			</tr>
@@ -46,8 +68,8 @@ Volver</button>
 		</table>
 	</div>
 	<br>
-	<div class="col-md-10" style="color: #686464">
-	resena SEIREO DOS llsjakd asdijseodjsldjmsld  e rer e re tre tre t 
+	<div class="col-md-10" style="color: #686464;text-align:justify;" id="resena">
+	
 	</div>
 	<br><br>
 	<h3 style=""><b>COMENTARIOS</b></h3>
@@ -57,7 +79,7 @@ Volver</button>
 		<tr>
 			<th rowspan="2"> 
 				<div class="col-md-3" style="" >
-					<img src="poster/user.png"  style="display:block;" scale="0">
+					<img src="http://localhost/IAinteractive/webapp/public/poster/user.png"  style="display:block;" scale="0">
 				</div>
 			</th>
 			<th>usuario 1</th>
@@ -68,7 +90,7 @@ Volver</button>
 		</tr>
 	</table>
 	<hr>
-	<button id="" onclick="agregarComentario('idpeli')" class="btn btn-primary btn-sm" data-loading-text="<i class='fa fa-refresh fa-spin '></i>" type="button">
+	<button id="" onclick="agregarComentario(<?php echo $_REQUEST['p'];?>)" class="btn btn-primary btn-sm" data-loading-text="<i class='fa fa-refresh fa-spin '></i>" type="button">
 	 Agregar Comentario </button>
 		<br><br>
 	

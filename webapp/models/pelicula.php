@@ -7,6 +7,7 @@
     class PeliculaModel extends Model
     {
         //Definir los atributos de la clase
+        public $id;
     	public $titulo;
         public $sinopsis;
         public $poster;
