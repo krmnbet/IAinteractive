@@ -6,8 +6,8 @@
 <link rel="stylesheet" href="http://localhost/IAinteractive/webapp/public/librerias/bootstrap-select-1.9.3/dist/css/bootstrap-select.min.css">
 <script src="http://localhost/IAinteractive/webapp/public/librerias/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="http://localhost/IAinteractive/webapp/public/librerias/bootstrap-select-1.9.3/dist/js/bootstrap-select.min.js"></script>
-    <link href="http://localhost/IAinteractive/webapp/public/css/diseno.css" rel="stylesheet">
-		<script src="http://localhost/IAinteractive/webapp/public/librerias/jquery-1.10.2.min.js"></script>
+<link href="http://localhost/IAinteractive/webapp/public/css/diseno.css" rel="stylesheet">
+<script src="http://localhost/IAinteractive/webapp/public/librerias/jquery-1.10.2.min.js"></script>
 		
 
 
@@ -17,21 +17,38 @@
 <div class="panel panel-default col-md-10 col-md-offset-1"><br>
 	<h2>Catalogo de Peliculas</h2>
 		<br>
-		<div style="overflow: scroll;text-align: center;" >
+		
 			<script>
-				$.post("ajax.php?c=Peliculas&f=validauser",{
-		      		usuario:$("#usuario").val(),
-		      		clave:$("#clave").val()
-		      	},function(r){ 
-		      		if(r==0){
-		      			alert("Usuario o clave incorrectos!");
-		      		}else{
-		      			window.location ="http://localhost/IAinteractive3/index.php?c=Peliculas&f=verpeli";
-		      		}
-		      		btnguardar.button('reset');
-		     	 });
+			var tabla="";	
+		    $.ajax({
+            url:"http://localhost/IAinteractive/webapp/pelicula",
+            type: 'GET',
+            dataType:'JSON',                                
+            
+            success: function(r){
+            	
+				
+        
+				for (var i in r) {
+            		tabla+='<div class="col-md-2"><table>\
+		            		<tr>\
+			        			<th title="Sinopsis" rowspan="2">\
+			        				<div class="col-md-3" style="">\
+										<img src="http://localhost/IAinteractive/webapp/public/poster/'+r[i].poster+'" width="200px" height="270px" onclick="javascript:window.location=\'http://localhost/IAinteractive/webapp/pelicula/'+r[i].id+'\'" style="display:block;cursor: pointer" scale="0">\
+									</div>\
+			        			</th>\
+			        		</tr>\
+				        </table>\
+	        			</div>';
+	        			 $("#conten").append(tabla);
+	        		}
+	        	}
+            });
+           
+            	
 			</script>
-			<div class="col-md-2">
+		<div style="overflow: scroll;text-align: center;"  id="conten">
+			<!-- <div class="col-md-2">
 		        <table>
 		        	
 		        		<tr>
@@ -88,7 +105,7 @@
 		        	</tbody>
 		        </table>
 	        </div>
-	        
+	         -->
 	        
         </div>
         <br><br>

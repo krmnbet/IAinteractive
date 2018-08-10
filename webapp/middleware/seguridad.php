@@ -3,7 +3,7 @@
 	//Cargar la clase de conexión padre para el modelo
     require_once("models/pdo_connection.php");
 
-	 class Seguridad {
+	abstract class Seguridad {
 
 		public static $ERROR_GLOBAL = array("status" => false, "mensaje" => "No se ha podido completar la accion, intentalo nuevamente");
 		public static $TOKEN_INVALIDO = array("status" => false, "mensaje" => "La sesión ha expirado", "logout" => true);
@@ -12,16 +12,11 @@
 		public static $Usuario;
 		public static $Sesion;
 
-		 public static function logueado(){
-		 	
-		 }
+		abstract public static function logueado();
 
-		 public static function login($usuario, $contrasena){
-		 	
-		 }
-		 public static function logout(){
-		 	
-		 }
+		abstract public static function login($usuario, $contrasena);
+
+		abstract public static function logout();
 
 		public static function encriptar($texto) {
 			require_once('config/settings.php');

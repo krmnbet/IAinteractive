@@ -1,7 +1,7 @@
 <?php
 	require_once('libraries/response.php');
 
-	 class ModelService {
+	abstract class ModelService {
 
 		protected $response;
 
@@ -9,9 +9,9 @@
 			$this->response = new Response();
 		}
 
-		 public function findAll();
-         public function findByOne($id);
-         public function create($data);
-         public function update($id, $data);
-         public function delete($id);
+		abstract public function findAll();
+        abstract public function findByOne($id);
+        abstract public function create($data);
+        abstract public function update($id, $data);
+        abstract public function delete($id);
 	}

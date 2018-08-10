@@ -7,7 +7,7 @@
     //Cargar la estructura de la base de datos para el modelo
     require_once("libraries/input.php");
 
-     class Model
+    abstract class Model
     {
         protected $id;
         protected $status;

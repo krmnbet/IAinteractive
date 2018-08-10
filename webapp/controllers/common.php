@@ -5,7 +5,7 @@
 		Clase padre de los modelos, se encarga de validar cuestiones de seguridad y responder la información generada por el modelo
 	*/
 
-	 class Common
+	abstract class Common
 	{
         protected $service;
 
@@ -13,7 +13,7 @@
             $this->setService();
         }
 
-         protected function setService();
+        abstract protected function setService();
 
         public function findAll() {
             self::responder($this->service->findAll());

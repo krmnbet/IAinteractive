@@ -5,7 +5,7 @@
 	*/
 
 	//Definir si el proyecto esta en fase de desarrollo o en producción
-	$activar_modo_debug = true;
+	$activar_modo_debug = false;
 	($activar_modo_debug) ? ini_set('display_errors', 1) : error_reporting(0); //¡No modificar esta linea de código!
 
 	//Obtener la ruta del proyecto para el re-direccionamiento
